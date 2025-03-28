@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "book")
-public class book {
+public class bookModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +17,10 @@ public class book {
     private long datePublished;
 
     // Empty constractor required by JPA
-    public book(){}
+    public bookModel(){}
 
     // Parameterized constractor
-    public book(String name, String category, long datePublished){
+    public bookModel(String name, String category, long datePublished){
         this.name = name;
         this.category = category;
         this.datePublished = datePublished;
