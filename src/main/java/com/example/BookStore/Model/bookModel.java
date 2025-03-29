@@ -1,7 +1,13 @@
 package com.example.BookStore.Model;
 
+
+
 import jakarta.persistence.*;
 
+
+/*
+ * Class bookModel which stores a books details
+ */
 @Entity
 @Table(name = "book")
 public class bookModel {
@@ -10,61 +16,122 @@ public class bookModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
+    private String bookAuthor;
 
-    private String category;
+    private String bookName;
+
+    private String bookCategory;
 
     private long datePublished;
 
-    // Empty constractor required by JPA
+    /**
+     * Class constractor
+     * Required empty constractor for JPA
+    */
     public bookModel(){}
 
-    // Parameterized constractor
-    public bookModel(String name, String category, long datePublished){
-        this.name = name;
-        this.category = category;
+    /**
+     * Class constractor
+     * 
+     * @param bookname
+     * @param bookCategory
+     * @param datePublished
+     * @param bookAuthor
+     * */ 
+    public bookModel(String bookName, String bookCategory, long datePublished, String bookAuthor){
+        this.bookName = bookName;
+        this.bookCategory = bookCategory;
         this.datePublished = datePublished;
+        this.bookAuthor = bookAuthor;
     }
 
     /*
      * Getters and Setters for books details.
-     * @param book
+     * @param bookName
+     * @param bookAuthor
+     * @param bookCategory
+     * @param datePublished
      * @return book details
      */
 
-    // Getter for id
+    /**
+     * Getter for the id
+     * 
+     * @param id
+     */ 
     public long getId(){
         return this.id;
     }
 
-    // Getter for name
-    public String getName(){
-        return this.name;
+    /**
+     * Getter for the bookName
+     * 
+     * @param bookName
+     * @return bookName
+     */
+    public String getBookName(){
+        return this.bookName;
     }
 
-    // Setter for name
-    public void setName(String name){
-        this.name = name;
+    /**
+     * Setter for the bookName
+     * 
+     * @param bookName
+     */ 
+    public void setBookName(String bookName){
+        this.bookName = bookName;
     }
 
-    // Getter for category
-    public String getCategory(){
-        return this.category;
+    /**
+     * Getter fot the bookCategory
+     * 
+     * @param bookCategory
+     * @return bookCategory
+    */
+    public String getBookCategory(){
+        return this.bookCategory;
     }
 
-    // Setter for category
-    public void setCategory(String category){
-        this.category = category;
+    /**
+     * Setter for the bookCategory
+     * @param bookCategory
+     */
+    public void setBookCategory(String bookCategory){
+        this.bookCategory = bookCategory;
     }
 
-    // Getter for published
+    /**
+     * Getter for the datePublished
+     * @param datePublished
+     * 
+     * @return datePublished
+      */ 
     public long getDatePublished(){
         return this.datePublished;
     }
 
-    // Setter for published
+    /**
+     * Setter for the datePublished
+     * @param datePublished
+    */
     public void setDatePublished(long datePublished){
         this.datePublished = datePublished;
     }
 
+    /**
+     * Getter for the bookAuthor
+     * @param bookAuthor
+     * @return bookAuthor 
+        */
+    public String getBookAuthor(){
+        return this.bookAuthor;
+    }
+
+    /**
+     * Setter for bookAuthor
+     * @param bookAuthor
+     */
+    public void setBookAuthor(String bookAuthor){
+        this.bookAuthor = bookAuthor;
+    }
 }
