@@ -21,6 +21,7 @@ public class CustomerModel {
 
     private String customerGender; // For the customer's gender
 
+
     /**
      * Default constructor
      * 
