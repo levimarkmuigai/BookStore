@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 
 /*
- * Class bookModel which stores a books details
+ * Class bookModel which stores a book's details
  */
 @Entity
 @Table(name = "book")
@@ -25,18 +25,18 @@ public class bookModel {
     private long datePublished;
 
     /**
-     * Class constractor
-     * Required empty constractor for JPA
+     * Default constructor
+     * Required empty for JPA
     */
     public bookModel(){}
 
     /**
-     * Class constractor
+     * Class constructor
      * 
-     * @param bookname
-     * @param bookCategory
-     * @param datePublished
-     * @param bookAuthor
+     * @param bookname the books name
+     * @param bookCategory the category of the book
+     * @param datePublished the publish date for the book
+     * @param bookAuthor the Author of the book
      * */ 
     public bookModel(String bookName, String bookCategory, long datePublished, String bookAuthor){
         this.bookName = bookName;
@@ -45,19 +45,21 @@ public class bookModel {
         this.bookAuthor = bookAuthor;
     }
 
-    /*
+    /**
      * Getters and Setters for books details.
-     * @param bookName
-     * @param bookAuthor
-     * @param bookCategory
-     * @param datePublished
+     * @param bookName the books name
+     * @param bookAuthor the books Author
+     * @param bookCategory the books category
+     * @param datePublished the publish date for the book
      * @return book details
      */
 
     /**
      * Getter for the id
      * 
-     * @param id
+     * @param id the books Id
+     * 
+     * @return the nooks id
      */ 
     public long getId(){
         return this.id;
@@ -66,8 +68,8 @@ public class bookModel {
     /**
      * Getter for the bookName
      * 
-     * @param bookName
-     * @return bookName
+     * @param bookName for the books name
+     * @return the  book's name
      */
     public String getBookName(){
         return this.bookName;
@@ -83,10 +85,10 @@ public class bookModel {
     }
 
     /**
-     * Getter fot the bookCategory
+     * Getter for the bookCategory
      * 
      * @param bookCategory
-     * @return bookCategory
+     * @return the book's category
     */
     public String getBookCategory(){
         return this.bookCategory;
@@ -104,7 +106,7 @@ public class bookModel {
      * Getter for the datePublished
      * @param datePublished
      * 
-     * @return datePublished
+     * @return book's date of publish
       */ 
     public long getDatePublished(){
         return this.datePublished;
@@ -121,7 +123,7 @@ public class bookModel {
     /**
      * Getter for the bookAuthor
      * @param bookAuthor
-     * @return bookAuthor 
+     * @return the name of the book's Author 
         */
     public String getBookAuthor(){
         return this.bookAuthor;
@@ -129,7 +131,7 @@ public class bookModel {
 
     /**
      * Setter for bookAuthor
-     * @param bookAuthor
+     * @param bookAuthor the Author of the book
      */
     public void setBookAuthor(String bookAuthor){
         this.bookAuthor = bookAuthor;
