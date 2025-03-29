@@ -6,11 +6,11 @@ import jakarta.persistence.*;
 
 
 /*
- * Class bookModel which stores a book's details
+ * Class BookModel which stores a book's details
  */
 @Entity
 @Table(name = "book")
-public class bookModel {
+public class BookModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class bookModel {
      * Default constructor
      * Required empty for JPA
     */
-    public bookModel(){}
+    public BookModel(){}
 
     /**
      * Class constructor
@@ -38,7 +38,7 @@ public class bookModel {
      * @param datePublished the publish date for the book
      * @param bookAuthor the Author of the book
      * */ 
-    public bookModel(String bookName, String bookCategory, long datePublished, String bookAuthor){
+    public BookModel(String bookName, String bookCategory, long datePublished, String bookAuthor){
         this.bookName = bookName;
         this.bookCategory = bookCategory;
         this.datePublished = datePublished;
