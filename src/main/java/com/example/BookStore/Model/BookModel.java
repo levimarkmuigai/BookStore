@@ -14,7 +14,7 @@ public class BookModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String bookAuthor;
 
@@ -61,7 +61,7 @@ public class BookModel {
      * 
      * @return the nooks id
      */ 
-    public long getId(){
+    public Long getId(){
         return this.id;
     }
 
