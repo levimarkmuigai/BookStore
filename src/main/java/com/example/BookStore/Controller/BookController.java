@@ -71,4 +71,20 @@ public class BookController {
     })
         .orElse(ResponseEntity.notFound().build());
   }
+
+  /**
+   * Deletes a book.
+   * 
+   * @param id of the book to be deleted
+   * @return a ResponseEntity with HTTP status 204 if deletion is successful
+   */
+  @DeleteMapping("{/id}")
+  public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
+    if (bookRepository.existsById(id)) {
+      bookRepository.deleteById(id);
+      return ResponseEntity.noContent().build();
+    } else {
+      return ResponseEntity.notFound().build();
+    }
+  }
 }
