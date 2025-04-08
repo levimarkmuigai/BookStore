@@ -75,7 +75,7 @@ public class CustomerModel {
      * 
      * @param customerUserName
      *
-     *                         return customer's username
+     * @return customer's username
      */
     public String getCustomerUserName() {
         return this.customerUserName;

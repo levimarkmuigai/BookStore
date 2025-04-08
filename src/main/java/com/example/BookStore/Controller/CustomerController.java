@@ -7,6 +7,7 @@ import org.springframework.web.bind.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,6 +61,27 @@ public class CustomerController {
     @PostMapping
     public CustomerModel createCustomer(@RequestBody CustomerModel customer) {
         return customerRepository.save(customer);
+    }
+
+    /**
+     * A method to updated an existing customer
+     * 
+     * @param id             the customer's id.
+     * @param updateCustomer
+     * @return updated customer details
+     */
+    @PutMapping
+    public ResponseEntity<CustomerModel> updateCustomer(@PathVariable Long id,
+            @RequestBody CustomerModel updateCustomer) {
+        return customerRepository.findById(id).map(customer -> {
+            customer.setCustomerUserName(updateCustomer.getCustomerUserName());
+            customer.setCustomerEmail(updateCustomer.getCustomerEmail());
+            customer.setCustomerPhoneNumber(updateCustomer.getCustomerPhoneNumber());
+            customer.setCustomerGender(updateCustomer.getCustomerGender());
+            CustomerModel savedCustomer = customerRepository.save(customer);
+            return ResponseEntity.ok(savedCustomer);
+        })
+                .orElse(ResponseEntity.notFound().build());
     }
 
 }
