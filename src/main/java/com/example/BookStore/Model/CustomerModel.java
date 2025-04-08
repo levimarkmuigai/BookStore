@@ -11,7 +11,7 @@ public class CustomerModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id; // For the customer's id
+    private Long id; // For the customer's id
 
     private String customerUserName; // For the customer's username
 
@@ -21,29 +21,29 @@ public class CustomerModel {
 
     private String customerGender; // For the customer's gender
 
-
     /**
      * Default constructor
      * 
      * Empty for JPA
      */
-    public CustomerModel(){}
+    public CustomerModel() {
+    }
 
     /**
      * Parameterized class constructor.
      * 
-     * @param customerUserName 
+     * @param customerUserName
      * @param customerEmail
      * @param customerPhoneNumber
      * @param customerGender
      * 
-     * @return customer's  username
+     * @return customer's username
      * @return customer's email
      * @return customer's phonenumber
      * @return customer's gender
      */
-    public CustomerModel(String customerUserName, String customerEmail, 
-                        long customerPhoneNumber, String customerGender){
+    public CustomerModel(String customerUserName, String customerEmail,
+            long customerPhoneNumber, String customerGender) {
         this.customerUserName = customerUserName;
         this.customerEmail = customerEmail;
         this.customerPhoneNumber = customerPhoneNumber;
@@ -53,6 +53,7 @@ public class CustomerModel {
     /**
      * Getters and Setters for Customer's details
      * 
+     * @param id
      * @param customerUserName
      * @param customerEmail
      * @param customerPhoneNumber
@@ -60,15 +61,23 @@ public class CustomerModel {
      * 
      * @return customer's details
      */
+    /**
+     * Getter for the customer's id.
+     * 
+     * @return the customers id
+     */
+    public Long getId() {
+        return this.id;
+    }
 
     /**
      * Getter for Customer's username
      * 
      * @param customerUserName
      *
-     * return customer's username
+     *                         return customer's username
      */
-    public String getCustomerUserName(){
+    public String getCustomerUserName() {
         return this.customerUserName;
     }
 
@@ -77,7 +86,7 @@ public class CustomerModel {
      * 
      * @param customerUserName
      */
-    public void setCustomerUserName(String customerUserName){
+    public void setCustomerUserName(String customerUserName) {
         this.customerUserName = customerUserName;
     }
 
@@ -88,7 +97,7 @@ public class CustomerModel {
      * 
      * @return customer's email
      */
-    public String getCustomerEmail(){
+    public String getCustomerEmail() {
         return this.customerEmail;
     }
 
@@ -97,18 +106,18 @@ public class CustomerModel {
      * 
      * @param customerEmail
      */
-    public void setCustomerEmail(String customerEmail){
+    public void setCustomerEmail(String customerEmail) {
         this.customerEmail = customerEmail;
     }
 
     /**
-     * Getter for Customer's phonenumber 
+     * Getter for Customer's phonenumber
      * 
      * @param customerPhoneNumber
      * 
      * @return customer's phonenumber
      */
-    public long getCustomerPhoneNumber(){
+    public long getCustomerPhoneNumber() {
         return this.customerPhoneNumber;
     }
 
@@ -117,7 +126,7 @@ public class CustomerModel {
      * 
      * @param customerPhoneNumber
      */
-    public void setCustomerPhoneNumber(long customerPhoneNumber){
+    public void setCustomerPhoneNumber(long customerPhoneNumber) {
         this.customerPhoneNumber = customerPhoneNumber;
     }
 
@@ -128,7 +137,7 @@ public class CustomerModel {
      * 
      * @return customer's gender
      */
-    public String getCustomerGender(){
+    public String getCustomerGender() {
         return this.customerGender;
     }
 
@@ -137,7 +146,7 @@ public class CustomerModel {
      * 
      * @param customerGender
      */
-    public void setCustomerGender(String customerGender){
+    public void setCustomerGender(String customerGender) {
         this.customerGender = customerGender;
     }
 }
