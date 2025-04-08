@@ -66,7 +66,7 @@ public class CustomerController {
     /**
      * A method to updated an existing customer
      * 
-     * @param id             the customer's id.
+     * @param id the customer's id.
      * @param updateCustomer
      * @return updated customer details
      */
