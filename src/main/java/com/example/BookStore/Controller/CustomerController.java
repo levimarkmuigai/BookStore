@@ -3,7 +3,7 @@ package com.example.BookStore.Controller;
 import com.example.BookStore.Repositories.CustomerRepository;
 import com.example.BookStore.Model.CustomerModel;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -84,4 +84,20 @@ public class CustomerController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    /**
+     * A method to delete a customer by id.
+     * 
+     * @param id of customer to be deleted
+     * 
+     * @return a ResponseEntity with HTTP status 204 if deletion is successfull.
+     */
+    @DeleteMapping("{/id}")
+    public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
+        if (customerRepository.existsById(id)) {
+            customerRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
