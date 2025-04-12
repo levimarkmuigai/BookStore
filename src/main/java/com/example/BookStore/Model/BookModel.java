@@ -13,13 +13,13 @@ public class BookModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Author", nullable = false)
+    @Column(name = "Author", nullable = false, precision = 5, scale = 4)
     private String bookAuthor;
-    @Column(name = "Name", nullable = false)
+    @Column(name = "Name", nullable = false, precision = 5, scale = 4)
     private String bookName;
-    @Column(name = "Category")
+    @Column(name = "Category", precision = 5, scale = 4)
     private String bookCategory;
-    @Column(name = "Published", nullable = false)
+    @Column(name = "Published", nullable = false, precision = 5, scale = 4)
     private long datePublished;
 
     /**
