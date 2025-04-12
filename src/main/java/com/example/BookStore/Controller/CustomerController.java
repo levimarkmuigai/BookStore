@@ -66,7 +66,7 @@ public class CustomerController {
     /**
      * A method to updated an existing customer
      * 
-     * @param id the customer's id.
+     * @param id             the customer's id.
      * @param updateCustomer
      * @return updated customer details
      */
@@ -74,6 +74,9 @@ public class CustomerController {
     public ResponseEntity<CustomerModel> updateCustomer(@PathVariable Long id,
             @RequestBody CustomerModel updateCustomer) {
         return customerRepository.findById(id).map(customer -> {
+            customer.setFirstName(updateCustomer.getFirstName());
+            customer.setMiddleName(updateCustomer.getMiddleName());
+            customer.setLastName(updateCustomer.getLastName());
             customer.setCustomerUserName(updateCustomer.getCustomerUserName());
             customer.setCustomerEmail(updateCustomer.getCustomerEmail());
             customer.setCustomerPhoneNumber(updateCustomer.getCustomerPhoneNumber());

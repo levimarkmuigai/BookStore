@@ -1,6 +1,7 @@
 package com.example.BookStore.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 import java.util.*;
 
@@ -12,28 +13,29 @@ import java.util.*;
 public class OrderModel {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id; // for the order's Id
+
+    @Column(name = "Date", nullable = false)
+    @Positive(message = "Date should be a positive number (e.g., timezone).")
+    @NotNull(message = "The date should not be empty.")
 
     private Date orderDate; // for the order's date
 
-    private String orderType; // for the order's type
-
     /**
-     * Default constructor 
+     * Default constructor
      * Empty for Jpa
      */
-    public OrderModel(){}
+    public OrderModel() {
+    }
 
     /**
-     * Parameterized constractor 
+     * Parameterized constractor
      * 
      * @param orderDate
-     * @param orderType
      */
-    public OrderModel(Date orderDate, String orderType){
+    public OrderModel(Date orderDate) {
         this.orderDate = orderDate;
-        this.orderType = orderType;
     }
 
     /**
@@ -41,16 +43,15 @@ public class OrderModel {
      * 
      * @param id
      * @param orderDate
-     * @param orderType
      */
 
     /**
      * Getter for the order's date.
      * 
      * @param id
-     * @return order's  id
+     * @return order's id
      */
-    public long getId(){
+    public long getId() {
         return this.id;
     }
 
@@ -59,9 +60,9 @@ public class OrderModel {
      * 
      * @param orderDate
      * 
-     * @return order's Date 
+     * @return order's Date
      */
-    public Date getOrderDate(){
+    public Date getOrderDate() {
         return this.orderDate;
     }
 
@@ -70,27 +71,7 @@ public class OrderModel {
      * 
      * @param orderDate
      */
-    public void setOrderDate(Date orderDate){
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
-    }
-
-    /**
-     * Getter for the order's Type
-     * 
-     * @param orderType
-     * 
-     * @return order's type
-     */
-    public String getOrderType(){
-        return this.orderType;
-    }
-
-    /**
-     * Setter for the order's type
-     * 
-     * @param orderType
-     */
-    public void setOrderType(String orderType){
-        this.orderType = orderType;
     }
 }
