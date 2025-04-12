@@ -1,6 +1,7 @@
 package com.example.BookStore.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 /*
  * Class BookModel which stores a book's details
@@ -13,13 +14,25 @@ public class BookModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Author", nullable = false, precision = 5, scale = 4)
+    @Column(name = "Author", nullable = false)
+    @Size(min = 1, max = 100, message = "Author name must be between 1 and 100 Characters.")
+    @NotNull(message = "Author name cannot be empty.")
+
     private String bookAuthor;
-    @Column(name = "Name", nullable = false, precision = 5, scale = 4)
+
+    @Column(name = "Name", nullable = false)
+    @Size(min = 1, max = 100, message = "Book name must be between 1 and 100 Characters.")
+    @NotNull(message = "Book name cannot be empty.")
+
     private String bookName;
-    @Column(name = "Category", precision = 5, scale = 4)
+
+    @Column(name = "Category")
+    @Size(max = 50, message = "Book cannot be longer than 50 Characters.")
+
     private String bookCategory;
+
     @Column(name = "Published", nullable = false, precision = 5, scale = 4)
+    @Positive(message = "Publication date must be a positive number (e.g., timestamp)")
     private long datePublished;
 
     /**
