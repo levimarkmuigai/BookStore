@@ -17,22 +17,26 @@ public class BookModel {
     @Column(name = "Author", nullable = false)
     @Size(min = 1, max = 100, message = "Author name must be between 1 and 100 Characters.")
     @NotNull(message = "Author name cannot be empty.")
+    @NotEmpty
 
-    private String bookAuthor;
+    private String author;
 
     @Column(name = "Name", nullable = false)
     @Size(min = 1, max = 100, message = "Book name must be between 1 and 100 Characters.")
     @NotNull(message = "Book name cannot be empty.")
+    @NotEmpty
 
-    private String bookName;
+    private String name;
 
     @Column(name = "Category")
     @Size(max = 50, message = "Book cannot be longer than 50 Characters.")
 
-    private String bookCategory;
+    private String category;
 
-    @Column(name = "Published", nullable = false, precision = 5, scale = 4)
+    @Column(name = "Published", nullable = false)
     @Positive(message = "Publication date must be a positive number (e.g., timestamp)")
+    @NotNull(message = "Publication date should not be empty.")
+    @NotEmpty
     private long datePublished;
 
     /**
@@ -45,24 +49,24 @@ public class BookModel {
     /**
      * Class constructor
      * 
-     * @param bookname      the books name
-     * @param bookCategory  the category of the book
+     * @param name          the books name
+     * @param category      the category of the book
      * @param datePublished the publish date for the book
-     * @param bookAuthor    the Author of the book
+     * @param author        the Author of the book
      */
-    public BookModel(String bookName, String bookCategory, long datePublished, String bookAuthor) {
-        this.bookName = bookName;
-        this.bookCategory = bookCategory;
+    public BookModel(String name, String category, long datePublished, String author) {
+        this.name = name;
+        this.category = category;
         this.datePublished = datePublished;
-        this.bookAuthor = bookAuthor;
+        this.author = author;
     }
 
     /**
      * Getters and Setters for books details.
      * 
-     * @param bookName      the books name
-     * @param bookAuthor    the books Author
-     * @param bookCategory  the books category
+     * @param name          the books name
+     * @param author        the books Author
+     * @param category      the books category
      * @param datePublished the publish date for the book
      * @return book details
      */
@@ -70,50 +74,50 @@ public class BookModel {
     /**
      * Getter for the id
      * 
-     * @param id the books Id
+     * @param id the book's id
      * 
-     * @return the nooks id
+     * @return the books id
      */
     public Long getId() {
         return this.id;
     }
 
     /**
-     * Getter for the bookName
+     * Getter for the book's name
      * 
-     * @param bookName for the books name
+     * @param name for the books name
      * @return the book's name
      */
-    public String getBookName() {
-        return this.bookName;
+    public String getName() {
+        return this.name;
     }
 
     /**
-     * Setter for the bookName
+     * Setter for the book's name
      * 
      * @param bookName
      */
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * Getter for the bookCategory
+     * Getter for the book's category
      * 
-     * @param bookCategory
+     * @param category
      * @return the book's category
      */
-    public String getBookCategory() {
-        return this.bookCategory;
+    public String getCategory() {
+        return this.category;
     }
 
     /**
-     * Setter for the bookCategory
+     * Setter for the book's category
      * 
-     * @param bookCategory
+     * @param category
      */
-    public void setBookCategory(String bookCategory) {
-        this.bookCategory = bookCategory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     /**
@@ -137,21 +141,21 @@ public class BookModel {
     }
 
     /**
-     * Getter for the bookAuthor
+     * Getter for the book's author
      * 
-     * @param bookAuthor
+     * @param author
      * @return the name of the book's Author
      */
-    public String getBookAuthor() {
-        return this.bookAuthor;
+    public String getAuthor() {
+        return this.author;
     }
 
     /**
-     * Setter for bookAuthor
+     * Setter for book's author
      * 
-     * @param bookAuthor the Author of the book
+     * @param author the Author of the book
      */
-    public void setBookAuthor(String bookAuthor) {
-        this.bookAuthor = bookAuthor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

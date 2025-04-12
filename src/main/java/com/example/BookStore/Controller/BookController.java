@@ -62,9 +62,9 @@ public class BookController {
   @PutMapping("/{id}")
   public ResponseEntity<BookModel> updateBook(@PathVariable Long id, @RequestBody BookModel updateBook) {
     return bookRepository.findById(id).map(book -> {
-      book.setBookAuthor(updateBook.getBookAuthor());
-      book.setBookName(updateBook.getBookName());
-      book.setBookCategory(updateBook.getBookCategory());
+      book.setAuthor(updateBook.getAuthor());
+      book.setName(updateBook.getName());
+      book.setCategory(updateBook.getCategory());
       book.setDatePublished(updateBook.getDatePublished());
       BookModel savedBook = bookRepository.save(book);
       return ResponseEntity.ok(savedBook);
