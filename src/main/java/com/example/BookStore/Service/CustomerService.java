@@ -1,6 +1,6 @@
 package com.example.BookStore.Service;
 
-import com.example.BookStore.DTO.CustomerSummery;
+import com.example.BookStore.DTO.CustomerSummary;
 import com.example.BookStore.Model.CustomerModel;
 import com.example.BookStore.Repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
@@ -22,11 +22,11 @@ public class CustomerService {
      * @param id customer's id
      * @return summery for a customers details
      */
-    public CustomerSummery generateCustomerDetails(Long id) {
+    public CustomerSummary generateCustomerDetails(Long id) {
         CustomerModel customer = customerRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Customer not found."));
 
-        return new CustomerSummery(
+        return new CustomerSummary(
                 customer.getId(),
                 customer.getFirstName(),
                 customer.getMiddleName(),

@@ -3,7 +3,7 @@ package com.example.BookStore.DTO;
 /**
  * Consists of the details for a single customer.
  */
-public record CustomerSummery(
+public record CustomerSummary(
     Long id,
     String firstName,
     String middleName,
