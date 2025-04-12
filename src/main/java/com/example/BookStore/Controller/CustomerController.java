@@ -77,10 +77,10 @@ public class CustomerController {
             customer.setFirstName(updateCustomer.getFirstName());
             customer.setMiddleName(updateCustomer.getMiddleName());
             customer.setLastName(updateCustomer.getLastName());
-            customer.setCustomerUserName(updateCustomer.getCustomerUserName());
-            customer.setCustomerEmail(updateCustomer.getCustomerEmail());
-            customer.setCustomerPhoneNumber(updateCustomer.getCustomerPhoneNumber());
-            customer.setCustomerGender(updateCustomer.getCustomerGender());
+            customer.setUserName(updateCustomer.getUserName());
+            customer.setEmail(updateCustomer.getEmail());
+            customer.setPhoneNumber(updateCustomer.getPhoneNumber());
+            customer.setGender(updateCustomer.getGender());
             CustomerModel savedCustomer = customerRepository.save(customer);
             return ResponseEntity.ok(savedCustomer);
         })

@@ -3,7 +3,7 @@ package com.example.BookStore.Model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-import java.util.*;
+import java.util.Date;
 
 /**
  * Class to track order details
@@ -20,7 +20,7 @@ public class OrderModel {
     @Positive(message = "Date should be a positive number (e.g., timezone).")
     @NotNull(message = "The date should not be empty.")
 
-    private Date orderDate; // for the order's date
+    private Date date; // for the order's date
 
     /**
      * Default constructor
@@ -32,17 +32,17 @@ public class OrderModel {
     /**
      * Parameterized constractor
      * 
-     * @param orderDate
+     * @param date
      */
-    public OrderModel(Date orderDate) {
-        this.orderDate = orderDate;
+    public OrderModel(Date date) {
+        this.date = date;
     }
 
     /**
      * Getters and Setters for the order's details
      * 
      * @param id
-     * @param orderDate
+     * @param date
      */
 
     /**
@@ -62,16 +62,16 @@ public class OrderModel {
      * 
      * @return order's Date
      */
-    public Date getOrderDate() {
-        return this.orderDate;
+    public Date getDate() {
+        return this.date;
     }
 
     /**
      * Setter for the order's Date
      * 
-     * @param orderDate
+     * @param date
      */
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

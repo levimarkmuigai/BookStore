@@ -65,7 +65,7 @@ public class OrderController {
     @PutMapping
     public ResponseEntity<OrderModel> updateOrder(@PathVariable Long id, @RequestBody OrderModel updateOrder) {
         return orderRepository.findById(id).map(order -> {
-            order.setOrderDate(updateOrder.getOrderDate());
+            order.setDate(updateOrder.getDate());
             OrderModel savedOrder = orderRepository.save(order);
             return ResponseEntity.ok(savedOrder);
         }).orElse(ResponseEntity.notFound().build());

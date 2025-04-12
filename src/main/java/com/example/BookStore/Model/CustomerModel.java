@@ -34,23 +34,24 @@ public class CustomerModel {
     @Size(min = 5, max = 55, message = "UserName should be between 5 and 55 characters.")
     @NotNull(message = "UserName cannot be empty.")
 
-    private String customerUserName; // For the customer's username
+    private String userName; // For the customer's username
 
     @Column(name = "Email", nullable = false)
     @Size(max = 255, message = "Email cannot be more than 255 characters.")
     @NotNull(message = "Email cannot be empty.")
 
-    private String customerEmail; // For the customer's email
+    private String email; // For the customer's email
 
     @Column(name = "PhoneNumber", nullable = true)
     @Positive(message = "A phonenumber should be positive (e.g 0712345678).")
 
-    private long customerPhoneNumber; // For the customer's phonenumber
+    private Long phoneNumber; // For the customer's phonenumber
 
     @Column(name = "Gender", nullable = false)
     @Size(max = 7, message = "Gender should not be more than 7 characters.")
     @NotNull(message = "Gender cannot be empty.")
-    private String customerGender; // For the customer's gender
+
+    private String gender; // For the customer's gender
 
     /**
      * Default constructor
@@ -66,10 +67,10 @@ public class CustomerModel {
      * @param firstName
      * @param middleName
      * @param lastName
-     * @param customerUserName
-     * @param customerEmail
-     * @param customerPhoneNumber
-     * @param customerGender
+     * @param userName
+     * @param email
+     * @param phoneNumber
+     * @param gender
      * 
      * @return customer's first name.
      * @return customer's middle name.
@@ -79,16 +80,16 @@ public class CustomerModel {
      * @return customer's phonenumber
      * @return customer's gender
      */
-    public CustomerModel(String customerUserName, String customerEmail,
-            long customerPhoneNumber, String customerGender, String firstName,
+    public CustomerModel(String userName, String email,
+            Long phoneNumber, String gender, String firstName,
             String middleName, String lastName) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.customerUserName = customerUserName;
-        this.customerEmail = customerEmail;
-        this.customerPhoneNumber = customerPhoneNumber;
-        this.customerGender = customerGender;
+        this.userName = userName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
     }
 
     /**
@@ -98,10 +99,10 @@ public class CustomerModel {
      * @param firstName
      * @param middleName
      * @param lastName
-     * @param customerUserName
-     * @param customerEmail
-     * @param customerPhoneNumber
-     * @param customerGender
+     * @param userName
+     * @param email
+     * @param phoneNumber
+     * @param gender
      * 
      * @return customer's details
      */
@@ -172,32 +173,32 @@ public class CustomerModel {
     /**
      * Getter for Customer's username
      * 
-     * @param customerUserName
+     * @param userName
      *
      * @return customer's username
      */
-    public String getCustomerUserName() {
-        return this.customerUserName;
+    public String getUserName() {
+        return this.userName;
     }
 
     /**
      * Setter for Customer's username
      * 
-     * @param customerUserName
+     * @param userName
      */
-    public void setCustomerUserName(String customerUserName) {
-        this.customerUserName = customerUserName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     /**
      * Getter for Customer's email
      * 
-     * @param customerEmail
+     * @param email
      * 
      * @return customer's email
      */
-    public String getCustomerEmail() {
-        return this.customerEmail;
+    public String getEmail() {
+        return this.email;
     }
 
     /**
@@ -205,19 +206,19 @@ public class CustomerModel {
      * 
      * @param customerEmail
      */
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     /**
      * Getter for Customer's phonenumber
      * 
-     * @param customerPhoneNumber
+     * @param phoneNumber
      * 
      * @return customer's phonenumber
      */
-    public long getCustomerPhoneNumber() {
-        return this.customerPhoneNumber;
+    public Long getPhoneNumber() {
+        return this.phoneNumber;
     }
 
     /**
@@ -225,27 +226,27 @@ public class CustomerModel {
      * 
      * @param customerPhoneNumber
      */
-    public void setCustomerPhoneNumber(long customerPhoneNumber) {
-        this.customerPhoneNumber = customerPhoneNumber;
+    public void setPhoneNumber(Long phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     /**
      * Getter for customer's gender
      * 
-     * @param customerGender
+     * @param gender
      * 
      * @return customer's gender
      */
-    public String getCustomerGender() {
-        return this.customerGender;
+    public String getGender() {
+        return this.gender;
     }
 
     /**
      * Setter for customer's gender
      * 
-     * @param customerGender
+     * @param gender
      */
-    public void setCustomerGender(String customerGender) {
-        this.customerGender = customerGender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

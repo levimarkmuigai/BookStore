@@ -3,6 +3,8 @@ package com.example.BookStore.Model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
+import java.util.Date;
+
 /*
  * Class BookModel which stores a book's details
  */
@@ -37,7 +39,7 @@ public class BookModel {
     @Positive(message = "Publication date must be a positive number (e.g., timestamp)")
     @NotNull(message = "Publication date should not be empty.")
     @NotEmpty
-    private long datePublished;
+    private Date datePublished;
 
     /**
      * Default constructor
@@ -54,7 +56,7 @@ public class BookModel {
      * @param datePublished the publish date for the book
      * @param author        the Author of the book
      */
-    public BookModel(String name, String category, long datePublished, String author) {
+    public BookModel(String name, String category, Date datePublished, String author) {
         this.name = name;
         this.category = category;
         this.datePublished = datePublished;
@@ -127,7 +129,7 @@ public class BookModel {
      * 
      * @return book's date of publish
      */
-    public long getDatePublished() {
+    public Date getDatePublished() {
         return this.datePublished;
     }
 
@@ -136,7 +138,7 @@ public class BookModel {
      * 
      * @param datePublished
      */
-    public void setDatePublished(long datePublished) {
+    public void setDatePublished(Date datePublished) {
         this.datePublished = datePublished;
     }
 
