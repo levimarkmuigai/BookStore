@@ -29,7 +29,8 @@ public class BookView {
      */
     @GetMapping("/api/bookreport")
     public List<BookSummery> getBookReport(Long id) {
-        return bookRepository.findById(id).stream().map(book -> bookService.generateBookDetails(book.getId()))
+        return bookRepository.findById(id).stream().map(
+                book -> bookService.generateBookDetails(book.getId()))
                 .collect(Collectors.toList());
     }
 }
