@@ -2,7 +2,7 @@ package com.example.BookStore.Service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.BookStore.DTO.BookSummery;
+import com.example.BookStore.DTO.BookSummary;
 import com.example.BookStore.Repositories.BookRepository;
 import com.example.BookStore.Model.BookModel;
 
@@ -24,10 +24,10 @@ public class BookService {
      * 
      * @return a summery of the book details
      */
-    public BookSummery generateBookDetails(Long id) {
+    public BookSummary generateBookDetails(Long id) {
         BookModel book = bookRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Book not found."));
 
-        return new BookSummery(
+        return new BookSummary(
                 book.getId(),
                 book.getName(),
                 book.getAuthor(),

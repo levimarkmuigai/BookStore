@@ -2,7 +2,7 @@ package com.example.BookStore.View;
 
 import com.example.BookStore.Service.BookService;
 import com.example.BookStore.Repositories.BookRepository;
-import com.example.BookStore.DTO.BookSummery;
+import com.example.BookStore.DTO.BookSummary;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,7 +28,7 @@ public class BookView {
      * @return a report of book's details.
      */
     @GetMapping("/api/bookreport")
-    public List<BookSummery> getBookReport(Long id) {
+    public List<BookSummary> getBookReport(Long id) {
         return bookRepository.findById(id).stream().map(
                 book -> bookService.generateBookDetails(book.getId()))
                 .collect(Collectors.toList());

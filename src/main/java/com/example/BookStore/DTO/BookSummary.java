@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * A record containing Book details.
  */
-public record BookSummery(
+public record BookSummary(
         Long id,
         String author,
         String name,
