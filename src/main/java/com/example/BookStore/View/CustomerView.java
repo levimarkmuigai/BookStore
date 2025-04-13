@@ -9,14 +9,16 @@ import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
-
+/**
+ * A class that displays a customer's details in Json format.
+ */
 public class CustomerView {
-    
+
     private final CustomerRepository customerRepository;
     private final CustomerService customerService;
 
-    public CustomerView(CustomerRepository customerRepository, 
-                        CustomerService customerService){
+    public CustomerView(CustomerRepository customerRepository,
+            CustomerService customerService) {
 
         this.customerRepository = customerRepository;
         this.customerService = customerService;
@@ -28,11 +30,11 @@ public class CustomerView {
      * @return a List of customer's details
      */
     @GetMapping("/api/customerreport")
-    public List<CustomerSummary> getCustomerReport(Long id){
+    public List<CustomerSummary> getCustomerReport(Long id) {
         return customerRepository.findById(id)
-                                .stream()
-                                .map(
-                                    customer -> customerService.generateCustomerDetails(customer.getId()))
-                                .collect(Collectors.toList());
+                .stream()
+                .map(
+                        customer -> customerService.generateCustomerDetails(customer.getId()))
+                .collect(Collectors.toList());
     }
 }
