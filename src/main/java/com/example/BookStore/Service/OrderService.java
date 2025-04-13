@@ -18,6 +18,12 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
+    /**
+     * Method creates a new instance of an order's summery
+     * 
+     * @param id
+     * @return new summery for the order.
+     */
     public OrderSummary generateOrderDetails(Long id) {
         OrderModel order = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found."));
